@@ -120,16 +120,18 @@ function Tabela() {
           {isLoading ? "Loading..." : "Obrisi"}
         </Button>
 
-        <ReactHTMLTableToExcel 
-        disabled={nbsList.length === 0 ? true : false}
-        className="btn btn-success"
-        table="table-to-xls"
-        filename="excelFile"
-        sheet="sheet 1"
-        buttonText="PREUZMI XLS"
-         />
+            {nbsList.length !== 0 ? 
+          <ReactHTMLTableToExcel
+           table="table-to-xls"
+           filename="excelFile"
+           className="btn btn-success"
+           sheet="sheet 1"
+           buttonText={isLoading ? "Loading..." : "Preuzmi"}
+           
+          /> : null }
+          </div>
       </div>
-    </div>
+  
   )
 }
 
