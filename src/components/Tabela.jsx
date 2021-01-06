@@ -27,7 +27,7 @@ function Tabela() {
     Axios.get("https://kursna-lista.herokuapp.com/api/get").then((response) => {
       setNbsList(response.data);
     });
-    
+
     //Renderuje nove podatke bez ponovnog ucitavanja
   }, []);
 
@@ -42,11 +42,10 @@ function Tabela() {
     window.location.reload()
   };
 
- 
+
 
   const handleDelete = () => {
     setLoading(true);
-
     Swal.fire({
       title: 'Da li ste sigurni da zelite da obrisete listu?',
       showCancelButton: true,
@@ -99,7 +98,7 @@ function Tabela() {
             <td>Nema podataka</td>
             <td>Nema podataka</td>
             <td>Nema podataka</td>
-            </tr></tbody>}
+          </tr></tbody>}
 
         </Table>
 
@@ -120,18 +119,18 @@ function Tabela() {
           {isLoading ? "Loading..." : "Obrisi"}
         </Button>
 
-            {nbsList.length !== 0 ? 
+        {nbsList.length !== 0 ?
           <ReactHTMLTableToExcel
-           table="table-to-xls"
-           filename="excelFile"
-           className="btn btn-success"
-           sheet="sheet 1"
-           buttonText={isLoading ? "Loading..." : "Preuzmi"}
-           
-          /> : null }
-          </div>
+            table="table-to-xls"
+            filename="excelFile"
+            className="btn btn-success"
+            sheet="sheet 1"
+            buttonText={isLoading ? "Loading..." : "Preuzmi"}
+
+          /> : null}
       </div>
-  
+    </div>
+
   )
 }
 

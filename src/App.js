@@ -7,11 +7,11 @@ import Tabela from "./components/Tabela";
 import FooterPage from "./components/FooterPage"
 
 
-function App() {
+function App(props) {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar/>
       <Container>
         <Tabela />
       </Container>

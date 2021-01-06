@@ -1,13 +1,14 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './navigacija.css'
+import Clock from "./Clock"
 
 function Navigacija() {
   return (
     <div>
-      <Navbar expand="lg"
-        className="nav-op"
+      <Navbar expand="xl"
+        className="nav-op m-auto "
         variant="light" >
         <Navbar.Brand href="/">
           <img
@@ -18,8 +19,17 @@ function Navigacija() {
             src="logonbs.png"
           />
         </Navbar.Brand>
+
         <h2 className="nav-text">Trenutna kursna lista</h2>
+
+        <div className="m-auto">
+        <Clock />
+        </div>
+    
+      
       </Navbar>
+
+    
     </div>
   );
 }
