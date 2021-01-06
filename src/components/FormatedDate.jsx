@@ -1,9 +1,8 @@
 import React from 'react'
-import "./navigacija.css"
 function FormatedDate(props) {
     return (
         <div>
-            <h2 className="nav-time">{props.date.toLocaleTimeString()}</h2>
+            <h3>{props.day}, {props.date}. {props.month} {props.year} {props.time.toLocaleTimeString()}</h3>
         </div>
     )
 }

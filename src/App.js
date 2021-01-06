@@ -5,13 +5,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navigacija";
 import Tabela from "./components/Tabela";
 import FooterPage from "./components/FooterPage"
+import Clock from "./components/Clock"
 
 
 function App(props) {
 
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <Container>
         <Tabela />
       </Container>

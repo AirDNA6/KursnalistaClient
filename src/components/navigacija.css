@@ -1,15 +1,10 @@
 .nav-text{
   color: rgb(218, 189, 62);
   text-transform: uppercase;
-  text-shadow: 2px 2px 8px #000000;
+  text-shadow: 2px 5px 8px #000000;
  
 }
 
-.nav-time{
-  color: rgb(218, 189, 62);
-  text-shadow: 2px 2px 8px #000000;
-  float: right;
-}
 
 .nav-op{
   background-color: #7b7643c9

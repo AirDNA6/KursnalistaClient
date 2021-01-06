@@ -20,16 +20,13 @@ function Navigacija() {
           />
         </Navbar.Brand>
 
-        <h2 className="nav-text">Trenutna kursna lista</h2>
-
-        <div className="m-auto">
+        <h3 className="nav-text">Trenutna kursna lista</h3>
+        <div className="ml-auto nav-text">
         <Clock />
         </div>
-    
-      
+  
       </Navbar>
-
-    
+      
     </div>
   );
 }
