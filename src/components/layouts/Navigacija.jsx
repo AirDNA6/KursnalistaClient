@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './navigacija.css'
+import '../css/navigacija.css'
 import Clock from "./Clock"
 
 function Navigacija() {

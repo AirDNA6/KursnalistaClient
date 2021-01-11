@@ -1,11 +1,12 @@
-
 import React, { useState, useEffect } from "react";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import Axios from "axios";
 import { Table, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from 'sweetalert2'
-import '../Footer.css'
+import "./css/Footer.css"
+import Login from './login/Login'
+
 
 function simulateNetworkRequest() {
   return new Promise((resolve) => setTimeout(resolve, 2000));
@@ -24,7 +25,7 @@ function Tabela() {
   }, [isLoading]);
 
   useEffect(() => {
-    Axios.get("https://kursna-lista.herokuapp.com/api/get").then((response) => {
+    Axios.get("http://localhost:3001/api/get").then((response) => {
       setNbsList(response.data);
     });
 
@@ -35,7 +36,7 @@ function Tabela() {
 
   const handleUpdate = () => {
     setLoading(true);
-    Axios.post("https://kursna-lista.herokuapp.com/api/insert");
+    Axios.post("http://localhost:3001/api/insert");
     //Dodaje na vec postojecih 18 recorda
     //jos novih 18 recorda
     setNbsList([...nbsList]);
@@ -53,10 +54,9 @@ function Tabela() {
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Axios.delete("https://kursna-lista.herokuapp.com/api/delete")
+        Axios.delete("http://localhost:3001/api/delete")
         Swal.fire('Obrisano', '', 'success')
         setTimeout(() => {
-
           window.location.reload()
         }, 2000)
       } else if (result.isDenied) {
@@ -78,8 +78,9 @@ function Tabela() {
               <th>Datum</th>
             </tr>
           </thead>
+          
 
-
+    
           {nbsList.length !== 0 ? Array.from(nbsList).map((value, myKey) => {
             return (
               <tbody key={myKey}>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import FormattedDate from "./FormatedDate"
-import "./navigacija.css"
+import "../css/navigacija.css"
 
 export class Clock extends Component {
     constructor(props) {
@@ -34,7 +34,7 @@ export class Clock extends Component {
 
     render() {
         const months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Novembar", "Decembar"]
-        const days = ["Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petar", "Subota"]
+        const days = ["Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petak", "Subota"]
         return (
             <div>
                 <FormattedDate
