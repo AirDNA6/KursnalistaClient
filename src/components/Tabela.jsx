@@ -25,25 +25,21 @@ function Tabela() {
   }, [isLoading]);
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/get").then((response) => {
+    Axios.get("https://kursna-lista.herokuapp.com/api/get").then((response) => {
       setNbsList(response.data);
     });
 
     //Renderuje nove podatke bez ponovnog ucitavanja
   }, []);
 
-
-
   const handleUpdate = () => {
     setLoading(true);
-    Axios.post("http://localhost:3001/api/insert");
+    Axios.post("https://kursna-lista.herokuapp.com/api/insert");
     //Dodaje na vec postojecih 18 recorda
     //jos novih 18 recorda
     setNbsList([...nbsList]);
     window.location.reload()
   };
-
-
 
   const handleDelete = () => {
     setLoading(true);
@@ -52,9 +48,8 @@ function Tabela() {
       showCancelButton: true,
       confirmButtonText: `Obrisi`
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        Axios.delete("http://localhost:3001/api/delete")
+        Axios.delete("https://kursna-lista.herokuapp.com/api/delete")
         Swal.fire('Obrisano', '', 'success')
         setTimeout(() => {
           window.location.reload()
@@ -78,9 +73,7 @@ function Tabela() {
               <th>Datum</th>
             </tr>
           </thead>
-          
 
-    
           {nbsList.length !== 0 ? Array.from(nbsList).map((value, myKey) => {
             return (
               <tbody key={myKey}>
@@ -103,6 +96,8 @@ function Tabela() {
 
         </Table>
 
+         <div style={{display: "inline-block"}}>
+
         <Button
           className="m-3"
           disabled={isLoading}
@@ -111,14 +106,10 @@ function Tabela() {
           {isLoading ? "Loading..." : "Azuriraj"}
         </Button>
 
-        <Button
-          className="m-3 btn-danger"
-          disabled={isLoading}
-          disabled={nbsList.length === 0 ? true : false}
-          onClick={!isLoading ? handleDelete : null}>
-          {" "}
-          {isLoading ? "Loading..." : "Obrisi"}
-        </Button>
+        <Login 
+        handleDelete={handleDelete}
+        isLoading={isLoading}
+        disable={nbsList.length}/>
 
         {nbsList.length !== 0 ?
           <ReactHTMLTableToExcel
@@ -127,8 +118,9 @@ function Tabela() {
             className="btn btn-success"
             sheet="sheet 1"
             buttonText={isLoading ? "Loading..." : "Preuzmi"}
-
           /> : null}
+
+        </div>       
       </div>
     </div>
 
