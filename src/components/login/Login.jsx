@@ -4,9 +4,6 @@ import Axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Login(props) {
-  const [usernameReg, setUsernameReg] = useState("");
-  const [passwordReg, setPasswordReg] = useState("");
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,14 +18,7 @@ function Login(props) {
   const handleShow = () => setShow(true);
 
   Axios.defaults.withCredentials = true;
-  const register = () => {
-    Axios.post("https://kursna-lista.herokuapp.com/api/register", {
-      username: usernameReg,
-      password: passwordReg,
-    }).then((response) => {
-      console.log(response);
-    });
-  };
+
 
   const login = () => {
     Axios.post("https://kursna-lista.herokuapp.com/api/login", {
@@ -54,7 +44,6 @@ function Login(props) {
   useEffect(() => {
     Axios.get("https://kursna-lista.herokuapp.com/api/login")
       .then(response => {
-        console.log(response)
         if (response.data.loggedIn) {
           setLoginStatus(response.data.user[0].username)
           setLoggedIn(response.data.loggedIn)
