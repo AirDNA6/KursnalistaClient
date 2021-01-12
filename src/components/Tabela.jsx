@@ -96,31 +96,31 @@ function Tabela() {
 
         </Table>
 
-         <div style={{display: "inline-block"}}>
+        <div style={{ display: "inline-block" }}>
 
-        <Button
-          className="m-3"
-          disabled={isLoading}
-          onClick={!isLoading ? handleUpdate : null}>
-          {" "}
-          {isLoading ? "Loading..." : "Azuriraj"}
-        </Button>
+          <Button
+            className="m-3"
+            disabled={isLoading}
+            onClick={!isLoading ? handleUpdate : null}>
+            {" "}
+            {isLoading ? "Loading..." : "Azuriraj"}
+          </Button>
 
-        <Login 
-        handleDelete={handleDelete}
-        isLoading={isLoading}
-        disable={nbsList.length}/>
+          <Login
+            handleDelete={handleDelete}
+            isLoading={isLoading}
+            disable={nbsList.length} />
 
-        {nbsList.length !== 0 ?
-          <ReactHTMLTableToExcel
-            table="table-to-xls"
-            filename="excelFile"
-            className="btn btn-success"
-            sheet="sheet 1"
-            buttonText={isLoading ? "Loading..." : "Preuzmi"}
-          /> : null}
+          {nbsList.length !== 0 ?
+            <ReactHTMLTableToExcel
+              table="table-to-xls"
+              filename="excelFile"
+              className="btn btn-success"
+              sheet="sheet 1"
+              buttonText={isLoading ? "Loading..." : "Preuzmi"}
+            /> : null}
 
-        </div>       
+        </div>
       </div>
     </div>
 

@@ -75,35 +75,7 @@ function Login(props) {
           <h1>Login</h1>
         </Modal.Header>
         <Modal.Body>
-        <h1>Registration</h1>
-          <Form>
-            <Form.Group controlId="formBasicUsernameReg">
-              <Form.Label>Username</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Username"
-                onChange={(e) => {
-                  setUsernameReg(e.target.value);
-                }}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicPasswordReg">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Password"
-                onChange={(e) => {
-                  setPasswordReg(e.target.value);
-                }}
-              />
-            </Form.Group>
-
-            <Button variant="primary" onClick={register}>
-              Register
-            </Button>
-          </Form>
-
+       
           <Form>
             <Form.Group controlId="formBasicUsername">
               <Form.Label>Username</Form.Label>
